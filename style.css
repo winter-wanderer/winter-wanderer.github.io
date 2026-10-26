@@ -51,6 +51,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .all-posts-link:hover { color: var(--ink); }
 .all-posts-link span { padding-left: 4px; }
 .book-shelf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 26px; row-gap: 36px; }
+.home-post-card { grid-column: 1 / -1; }
+.home-post-card a { display: flex; justify-content: space-between; gap: 24px; padding: 28px 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.home-post-card a:hover { border-color: #53614f; }
+.home-post-card h2 { margin: 0 0 10px; font-size: 19px; font-weight: 500; }
+.home-post-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.home-post-card a>span { color: var(--accent); font-size: 19px; }
 .book-card { min-width: 0; }
 .book-card[hidden] { display: none; }
 .book-button { display: block; width: 100%; text-align: left; border-radius: 8px; overflow: hidden; }
@@ -108,6 +114,10 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .collection-panel, .about-panel { border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, #202522, #1d2021); }
 .collection-panel { min-height: 210px; display: grid; place-items: center; padding: 32px; color: var(--muted); font-size: 13px; }
 .collection-panel p { margin: 0; text-align: center; }
+.category-panel { display: block; min-height: 0; padding: 0; overflow: hidden; }
+.category-panel a { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px; color: var(--ink); font-size: 16px; }
+.category-panel a:hover { background: #263029; }
+.category-panel a>span:last-child { color: var(--accent); font-size: 12px; }
 .about-panel { padding: 39px 42px; }
 .about-panel p { margin: 0; font: 400 19px/2 var(--serif); }
 .about-panel p+p { margin-top: 14px; color: var(--muted); font: 13px/1.9 var(--sans); }
@@ -120,8 +130,26 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .posts-collection-heading { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .posts-collection-heading h2 { margin: 0; font-size: 16px; font-weight: 500; }
 .posts-collection-heading span { color: var(--accent); font-size: 12px; }
+.topic-archive-link { display: inline-block; margin-top: 22px; color: var(--accent); font-size: 12px; }
+.topic-archive-link:hover { color: var(--ink); }
 .posts-list { list-style: none; margin: 0; padding: 0; }
+.posts-list li { border-bottom: 1px solid var(--line); }
+.posts-list a { display: flex; justify-content: space-between; gap: 24px; padding: 29px 0; }
+.posts-list a:hover h3 { color: var(--accent); }
+.posts-list h3 { margin: 0 0 9px; font-size: 18px; font-weight: 500; }
+.posts-list p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.posts-list a>span { color: var(--accent); font-size: 18px; }
 .posts-empty { margin: 0; padding: 90px 20px; color: var(--muted); font-size: 13px; text-align: center; }
+.article-page { flex: 1; padding-top: 68px; padding-bottom: 110px; }
+.article-back { color: var(--muted); font-size: 12px; }
+.article-back:hover { color: var(--ink); }
+.article-heading { margin-top: 50px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
+.article-heading .eyebrow { margin-bottom: 14px; }
+.article-heading .eyebrow a:hover { color: var(--ink); }
+.article-heading h1 { margin: 0; font: 400 clamp(32px, 4vw, 48px)/1.45 var(--serif); letter-spacing: -1.5px; }
+.article-heading h1 span { display: inline-block; }
+.article-body { max-width: 780px; padding-top: 34px; }
+.article-body p { margin: 0 0 28px; font-size: 16px; line-height: 2.15; overflow-wrap: anywhere; }
 .empty-state { grid-column: 1 / -1; display: grid; place-items: center; min-height: 300px; margin: 0; color: var(--muted); font-size: 13px; }
 .topics .topic:not(button) { cursor: default; }
 .site-footer>div { display: flex; gap: 16px; align-items: center; margin-right: auto; }
@@ -146,6 +174,15 @@ dialog h2 { margin: 0; font-size: 25px; font-weight: 500; letter-spacing: -1px; 
   .site-footer>div>span:last-child { display: none; }
 }
 @media (max-width: 600px) {
+  .home-post-card a { padding: 23px 20px; }
+  .home-post-card h2 { font-size: 17px; }
+  .category-panel a { padding: 24px 25px; }
+  .posts-list a { padding: 25px 0; }
+  .posts-list h3 { font-size: 16px; }
+  .article-page { padding-top: 45px; padding-bottom: 70px; }
+  .article-heading { margin-top: 36px; padding-bottom: 30px; }
+  .article-body { padding-top: 28px; }
+  .article-body p { font-size: 14px; line-height: 2; margin-bottom: 24px; }
   .posts-page { padding-top: 52px; padding-bottom: 60px; }
   .posts-intro { padding-bottom: 33px; }
   .posts-intro h1 { font-size: 42px; }
