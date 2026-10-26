@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 const routes = new Map([
   ['/', ['index.html', 'text/html']],
   ['/index.html', ['index.html', 'text/html']],
+  ['/posts/', ['posts/index.html', 'text/html']],
+  ['/posts/index.html', ['posts/index.html', 'text/html']],
   ['/categories/', ['categories/index.html', 'text/html']],
   ['/categories/index.html', ['categories/index.html', 'text/html']],
   ['/tags/', ['tags/index.html', 'text/html']],
