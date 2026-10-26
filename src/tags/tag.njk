@@ -1,0 +1,21 @@
+---
+layout: base.njk
+navSection: tags
+pagination:
+  data: collections.postTags
+  size: 1
+  alias: tag
+permalink: "/tags/{{ tag.slug }}/index.html"
+eleventyComputed:
+  title: "{{ tag.name }}"
+  description: "Winter Wanderer의 {{ tag.name }} 태그 글 목록."
+---
+<main id="main" class="page posts-page">
+  <div class="posts-intro"><p class="eyebrow">TAG</p><h1>{{ tag.name }}</h1><p>{{ tag.name }} 태그가 붙은 글.</p></div>
+  <section class="posts-collection" aria-labelledby="tag-posts-title">
+    <div class="posts-collection-heading"><h2 id="tag-posts-title">글 목록</h2><span>{{ tag.posts.length }}</span></div>
+    <ol class="posts-list" aria-label="{{ tag.name }} 태그 글 목록">
+      {% for post in tag.posts %}<li><a href="{{ post.url }}"><div><h3>{{ post.data.title }}</h3><p>{{ post.data.summary }}</p></div><span aria-hidden="true">↗</span></a></li>{% endfor %}
+    </ol>
+  </section>
+</main>

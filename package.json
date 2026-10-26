@@ -1,0 +1,14 @@
+{
+  "name": "winter-wanderer-blog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/clean-build.mjs && npm run generate && node scripts/sync-output.mjs",
+    "generate": "eleventy",
+    "dev": "eleventy --serve",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7"
+  }
+}

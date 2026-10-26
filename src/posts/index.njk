@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: 글
+description: Winter Wanderer의 글 목록.
+navSection: posts
+---
+<main id="main" class="page posts-page">
+  <div class="posts-intro"><p class="eyebrow">WRITING</p><h1>글</h1><p>쌓여가는 기록을 한곳에서 볼 수 있도록.</p></div>
+  <section class="posts-collection" aria-labelledby="all-posts-title">
+    <div class="posts-collection-heading"><h2 id="all-posts-title">전체 글</h2><span>{{ collections.posts.length }}</span></div>
+    <ol class="posts-list" aria-label="전체 글 목록">
+      {% for post in collections.posts %}<li><a href="{{ post.url }}"><div><h3>{{ post.data.title }}</h3><p>{{ post.data.summary }}</p></div><span aria-hidden="true">↗</span></a></li>{% else %}<li class="posts-empty">아직 글이 없습니다.</li>{% endfor %}
+    </ol>
+  </section>
+</main>

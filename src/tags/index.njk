@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: 태그
+description: Winter Wanderer의 글 태그.
+navSection: tags
+---
+<main id="main" class="page collection-page">
+  <div class="collection-heading"><p class="eyebrow">BROWSE</p><h1>태그</h1><p>글에 붙인 키워드를 모아둘 공간입니다.</p></div>
+  <section class="collection-panel{% if collections.postTags.length %} category-panel{% endif %}" aria-label="태그 목록">
+    {% for tag in collections.postTags %}<a href="/tags/{{ tag.slug }}/"><span>{{ tag.name }}</span><span>{{ tag.posts.length }} <span aria-hidden="true">→</span></span></a>{% else %}<p>아직 태그가 없습니다.</p>{% endfor %}
+  </section>
+</main>

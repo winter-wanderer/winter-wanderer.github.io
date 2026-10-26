@@ -1,0 +1,11 @@
+---
+layout: base.njk
+navSection: posts
+---
+<main id="main" class="page article-page">
+  <a class="article-back" href="/posts/{{ category.slug }}/{% if topic %}{{ topic.slug }}/{% endif %}">← {% if topic %}{{ topic.name }}{% else %}{{ category.name }}{% endif %} 글</a>
+  <article class="post-article">
+    <header class="article-heading"><p class="eyebrow"><a href="/posts/{{ category.slug }}/">{{ category.name }}</a></p><h1>{{ title }}</h1></header>
+    <div class="article-body">{{ content | safe }}</div>
+  </article>
+</main>

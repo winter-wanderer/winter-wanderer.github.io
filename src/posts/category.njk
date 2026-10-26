@@ -1,0 +1,22 @@
+---
+layout: base.njk
+navSection: categories
+pagination:
+  data: collections.postCategories
+  size: 1
+  alias: category
+permalink: "/posts/{{ category.slug }}/index.html"
+eleventyComputed:
+  title: "{{ category.name }}"
+  description: "Winter Wanderer의 {{ category.name }} 글 목록."
+---
+<main id="main" class="page posts-page">
+  <div class="posts-intro"><p class="eyebrow">CATEGORY</p><h1>{{ category.name }}</h1><p>{{ category.name }}에 관한 기록.</p></div>
+  <section class="posts-collection" aria-labelledby="category-posts-title">
+    <div class="posts-collection-heading"><h2 id="category-posts-title">글 목록</h2><span>{{ category.posts.length }}</span></div>
+    {% for topic in collections.postTopics %}{% if topic.parentSlug == category.slug %}<a class="topic-archive-link" href="/posts/{{ category.slug }}/{{ topic.slug }}/">{{ topic.name }} 글 모아보기 <span aria-hidden="true">→</span></a>{% endif %}{% endfor %}
+    <ol class="posts-list" aria-label="{{ category.name }} 글 목록">
+      {% for post in category.posts %}<li><a href="{{ post.url }}"><div><h3>{{ post.data.title }}</h3><p>{{ post.data.summary }}</p></div><span aria-hidden="true">↗</span></a></li>{% endfor %}
+    </ol>
+  </section>
+</main>

@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: 카테고리
+description: Winter Wanderer의 글 카테고리.
+navSection: categories
+---
+<main id="main" class="page collection-page">
+  <div class="collection-heading"><p class="eyebrow">BROWSE</p><h1>카테고리</h1><p>글을 주제별로 모아둘 공간입니다.</p></div>
+  <section class="collection-panel category-panel" aria-label="카테고리 목록">
+    {% for category in collections.postCategories %}<a href="/posts/{{ category.slug }}/"><span>{{ category.name }}</span><span>{{ category.posts.length }} <span aria-hidden="true">→</span></span></a>{% else %}<p>아직 카테고리가 없습니다.</p>{% endfor %}
+  </section>
+</main>
