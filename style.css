@@ -98,6 +98,18 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .home-quote blockquote { max-width: 760px; margin: 0 auto; }
 .home-quote blockquote p { margin: 0; font: 400 clamp(20px, 2.2vw, 27px)/1.8 var(--serif); text-wrap: balance; overflow-wrap: anywhere; }
 .home-quote figcaption { margin-top: 20px; color: var(--muted); font-size: 12px; letter-spacing: .3px; }
+.collection-page { flex: 1; padding-top: 72px; padding-bottom: 90px; }
+.collection-heading, .collection-panel, .about-panel { max-width: 760px; margin-left: auto; margin-right: auto; }
+.collection-heading { margin-bottom: 34px; }
+.collection-heading .eyebrow { margin-bottom: 12px; }
+.collection-heading h1 { margin: 0; font-size: 34px; font-weight: 500; letter-spacing: -1.2px; }
+.collection-heading>p:last-child:not(.eyebrow) { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.collection-panel, .about-panel { border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, #202522, #1d2021); }
+.collection-panel { min-height: 210px; display: grid; place-items: center; padding: 32px; color: var(--muted); font-size: 13px; }
+.collection-panel p { margin: 0; text-align: center; }
+.about-panel { padding: 39px 42px; }
+.about-panel p { margin: 0; font: 400 19px/2 var(--serif); }
+.about-panel p+p { margin-top: 14px; color: var(--muted); font: 13px/1.9 var(--sans); }
 .empty-state { grid-column: 1 / -1; display: grid; place-items: center; min-height: 300px; margin: 0; color: var(--muted); font-size: 13px; }
 .topics .topic:not(button) { cursor: default; }
 .site-footer>div { display: flex; gap: 16px; align-items: center; margin-right: auto; }
@@ -122,6 +134,14 @@ dialog h2 { margin: 0; font-size: 25px; font-weight: 500; letter-spacing: -1px; 
   .site-footer>div>span:last-child { display: none; }
 }
 @media (max-width: 600px) {
+  .collection-page { padding-top: 54px; padding-bottom: 60px; }
+  .collection-heading { margin-bottom: 25px; }
+  .collection-heading h1 { font-size: 29px; }
+  .collection-panel { min-height: 180px; }
+  .about-panel { padding: 30px 25px; }
+  .about-panel p { font-size: 17px; }
+  .header-inner { flex-wrap: wrap; height: auto; min-height: 72px; padding-top: 15px; padding-bottom: 10px; }
+  .site-header nav { width: 100%; margin-top: 9px; justify-content: space-between; gap: 10px; white-space: nowrap; }
   .home-quote { margin-top: 22px; padding: 44px 22px; }
   .quote-decoration { font-size: 120px; }
   .quote-decoration-open { top: 8px; left: 12px; }
