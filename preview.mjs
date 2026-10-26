@@ -5,6 +5,7 @@ const routes = new Map([
   ['/', ['index.html', 'text/html']],
   ['/index.html', ['index.html', 'text/html']],
   ['/style.css', ['style.css', 'text/css']],
+  ['/quotes.js', ['quotes.js', 'text/javascript']],
 ]);
 
 http.createServer(async (request, response) => {
