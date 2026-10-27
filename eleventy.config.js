@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 
 const input = process.env.SITE_INPUT ?? 'src';
 const postGlob = `${path.relative(process.cwd(), path.resolve(input)).replaceAll('\\', '/')}/content/posts/**/*.md`;
@@ -31,6 +32,27 @@ function groupPosts(items, getGroup) {
 }
 
 export default function (eleventyConfig) {
+  if (process.env.SITE_INCLUDE_DRAFTS === '1') {
+    const draftRoot = process.env.SITE_DRAFTS || 'drafts';
+    eleventyConfig.setUseGitIgnore(false);
+    eleventyConfig.addWatchTarget(`${draftRoot}/**/*.md`, { resetConfig: true });
+    function registerDrafts(directory, prefix = '') {
+      if (!existsSync(directory)) return;
+      for (const entry of readdirSync(directory, { withFileTypes: true })) {
+        const relative = path.posix.join(prefix, entry.name);
+        const source = path.join(directory, entry.name);
+        if (entry.isSymbolicLink()) throw new Error('Drafts must not contain linked files or directories.');
+        if (entry.name.startsWith('.')) continue;
+        if (entry.isDirectory()) registerDrafts(source, relative);
+        else if (entry.isFile() && entry.name.endsWith('.md')) {
+          const virtualPath = `content/posts/${relative}`;
+          if (existsSync(path.join(input, virtualPath))) throw new Error(`Draft conflicts with published post: ${relative}`);
+          eleventyConfig.addTemplate(virtualPath, readFileSync(source, 'utf8'));
+        }
+      }
+    }
+    registerDrafts(draftRoot);
+  }
   eleventyConfig.addTransform('trimHtmlLineEndings', function (content) {
     return this.page.outputPath?.endsWith('.html') ? content.replace(/[\t ]+$/gm, '') : content;
   });
@@ -59,11 +81,12 @@ export default function (eleventyConfig) {
     return [...groups.values()].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
   });
 
-  eleventyConfig.addPassthroughCopy({ 'style.css': 'style.css' });
-  eleventyConfig.addPassthroughCopy({ 'quotes.js': 'quotes.js' });
+  eleventyConfig.addPassthroughCopy({ [path.join(input, 'assets/css/style.css').replaceAll('\\', '/')]: 'style.css' });
+  eleventyConfig.addPassthroughCopy({ [path.join(input, 'assets/js/quotes.js').replaceAll('\\', '/')]: 'quotes.js' });
+  eleventyConfig.addPassthroughCopy({ [path.join(input, '.nojekyll').replaceAll('\\', '/')]: '.nojekyll' });
 
   return {
-    dir: { input, includes: '_includes', output: '.site-build' },
+    dir: { input, includes: '_includes', output: 'dist' },
     templateFormats: ['njk', 'md'],
     markdownTemplateEngine: false,
   };

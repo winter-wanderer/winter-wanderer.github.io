@@ -3,9 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/clean-build.mjs && npm run generate && node scripts/sync-output.mjs",
+    "build": "node scripts/site.mjs build",
     "generate": "eleventy",
-    "dev": "eleventy --serve",
+    "dev": "node scripts/site.mjs dev",
+    "dev:drafts": "node scripts/site.mjs dev:drafts",
+    "build:drafts": "node scripts/site.mjs review-build",
     "test": "node --test"
   },
   "devDependencies": {
