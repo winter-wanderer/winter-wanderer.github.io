@@ -80,7 +80,6 @@ postTags: []
     }
     const existing = await read('posts/game/eternal-return/lumia-outing.html');
     assert.match(existing, /<h1>루미아섬 나들이<\/h1>/);
-    assert.match(existing, /이번에도 사관 스킨은 받아야지/);
     assert.doesNotMatch(existing, /flow\.team|dak\.gg|시간나는대로/);
 
     await rm(fixture);

@@ -150,6 +150,22 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .article-heading h1 span { display: inline-block; }
 .article-body { max-width: 780px; padding-top: 34px; }
 .article-body p { margin: 0 0 28px; font-size: 16px; line-height: 2.15; overflow-wrap: anywhere; }
+.game-invite { margin: 0 0 44px; padding: 38px; border: 1px solid #3e4d43; border-radius: 12px; background: linear-gradient(135deg, #25352b, #1d2521); }
+.game-invite-label { font-size: 10px; letter-spacing: 2.4px; color: #afc99e; }
+.game-invite h2 { margin: 17px 0 15px; font: 600 clamp(26px, 3vw, 38px)/1.45 var(--sans); letter-spacing: -1.4px; color: #edf2e8; }
+.article-body .game-invite p { font-size: 15px; line-height: 1.9; color: #b9c5b7; margin-bottom: 25px; }
+.article-body a.game-download { display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 15px 22px; border-radius: 6px; background: #b7d397; color: #172116; font-size: 14px; font-weight: 700; text-decoration: none; transition: background .2s; }
+.article-body a.game-download:hover { background: #c9e4ac; }
+.game-invite small { display: block; margin-top: 12px; font-size: 10px; color: #99ab96; }
+.game-invite-end { text-align: center; margin-top: 44px; margin-bottom: 0; }
+.game-invite-end h2 { margin-top: 0; font-size: 29px; }
+@media (max-width: 600px) {
+  .game-invite { padding: 26px 22px; margin-bottom: 32px; }
+  .game-invite h2 { font-size: 26px; letter-spacing: -1px; }
+  .article-body .game-invite p { font-size: 13px; }
+  .article-body a.game-download { padding: 14px 16px; gap: 12px; font-size: 12px; }
+  .game-invite-end { margin-top: 34px; margin-bottom: 0; }
+}
 .empty-state { grid-column: 1 / -1; display: grid; place-items: center; min-height: 300px; margin: 0; color: var(--muted); font-size: 13px; }
 .topics .topic:not(button) { cursor: default; }
 .site-footer>div { display: flex; gap: 16px; align-items: center; margin-right: auto; }
