@@ -4,7 +4,7 @@ summary: 파밍하고, 만들고, 싸우고. 한타 한 번에 다시 한 판을
 date: 2026-10-26
 category:
   slug: game
-  name: 게임
+  name: GAME
 topic:
   slug: eternal-return
   name: 이터널리턴

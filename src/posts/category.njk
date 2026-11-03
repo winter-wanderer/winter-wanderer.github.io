@@ -11,7 +11,7 @@ eleventyComputed:
   description: "Winter Wanderer의 {{ category.name }} 글 목록."
 ---
 <main id="main" class="page posts-page">
-  <div class="posts-intro"><p class="eyebrow">CATEGORY</p><h1>{{ category.name }}</h1><p>{% if category.slug == 'music' %}방장의 취향으로 고른 좋은 음악을 소개합니다.{% else %}{{ category.name }}에 관한 기록.{% endif %}</p></div>
+  <div class="posts-intro"><p class="eyebrow">CATEGORY</p><h1>{{ category.name }}</h1><p>{% if category.slug == 'music' %}방장의 취향으로 고른 좋은 음악을 소개합니다.{% elif category.slug == 'game' %}게임에 관한 기록.{% else %}{{ category.name }}에 관한 기록.{% endif %}</p></div>
   <section class="posts-collection" aria-labelledby="category-posts-title">
     <div class="posts-collection-heading"><h2 id="category-posts-title">글 목록</h2><span>{{ category.posts.length }}</span></div>
     {% for topic in collections.postTopics %}{% if topic.parentSlug == category.slug %}<a class="topic-archive-link" href="/posts/{{ category.slug }}/{{ topic.slug }}/">{{ topic.name }} 글 모아보기 <span aria-hidden="true">→</span></a>{% endif %}{% endfor %}

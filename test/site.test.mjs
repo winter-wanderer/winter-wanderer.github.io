@@ -31,7 +31,7 @@ summary: 새 글을 추가하면 목록에도 나타난다.
 date: 2026-10-27
 category:
   slug: game
-  name: 게임
+  name: GAME
 topic:
   slug: eternal-return
   name: 이터널리턴
