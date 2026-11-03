@@ -115,7 +115,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .collection-panel { min-height: 210px; display: grid; place-items: center; padding: 32px; color: var(--muted); font-size: 13px; }
 .collection-panel p { margin: 0; text-align: center; }
 .category-panel { display: block; min-height: 0; padding: 0; overflow: hidden; }
-.category-panel a { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px; color: var(--ink); font-size: 16px; }
+.category-panel a { display: flex; width: 100%; justify-content: space-between; align-items: center; padding: 28px 32px; color: var(--ink); font-size: 16px; }
 .category-panel a+a { border-top: 1px solid var(--line); }
 .category-panel a:hover { background: #263029; }
 .category-panel a>span:last-child { color: var(--accent); font-size: 12px; }
