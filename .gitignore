@@ -6,11 +6,8 @@ dist/
 .site-build/
 .draft-build/
 
-# 게시 전 검토하는 로컬 초안 (천성의 약함 글만 Git에 보관)
-drafts/*
-!drafts/music/
-drafts/music/*
-!drafts/music/amanojaku.md
+# 게시 전 검토하는 로컬 초안
+drafts/
 
 # 자동 테스트의 임시 작업 폴더
 .test-workspace-*/

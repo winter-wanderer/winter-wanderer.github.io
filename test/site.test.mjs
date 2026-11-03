@@ -73,7 +73,7 @@ postTags: []
     assert.match(await read('categories/index.html'), /음악/);
     assert.match(await read('categories/index.html'), /\/posts\/music\//);
     assert.match(await read('index.html'), /\/posts\/music\//);
-    assert.match(await read('posts/music/index.html'), /첫 음악 소개를 준비 중입니다/);
+    assert.match(await read('posts/music/index.html'), /\/posts\/music\/amanojaku\.html/);
     assert.match(await read(`posts/${categorySlug}/index.html`), /새 카테고리 검증/);
     assert.match(await read('tags/index.html'), new RegExp(`/tags/${tagSlug}/`));
     assert.match(await read(`tags/${tagSlug}/index.html`), /C#/);
@@ -93,7 +93,7 @@ postTags: []
     await assert.rejects(read(`posts/game/eternal-return/${postName}.html`), { code: 'ENOENT' });
     await assert.rejects(read(`tags/${tagSlug}/index.html`), { code: 'ENOENT' });
     await assert.rejects(read(`posts/${categorySlug}/index.html`), { code: 'ENOENT' });
-    assert.match(await read('posts/music/index.html'), /첫 음악 소개를 준비 중입니다/);
+    assert.match(await read('posts/music/index.html'), /\/posts\/music\/amanojaku\.html/);
   } finally {
     if (workspace.startsWith(root + path.sep + '.test-workspace-')) {
       await rm(workspace, { recursive: true, force: true });
