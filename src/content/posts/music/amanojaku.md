@@ -24,4 +24,8 @@ postTags: []
 
 원곡을 알고 들으면 이 노래가 어떻게 시작됐는지 보이고, Akie의 버전을 들으면 잔잔한 편곡의 매력이 더 또렷해진다. 그래도 누군가에게 지금 한 영상을 골라 들려준다면, 나는 도비비의 2021년 커버를 고를 것 같다. 오래 들어온 노래인데도 지금 다시 재생하고 싶어지는 버전이니까.
 
-[도비비의 「천성의 약함」 2021년 한국어 커버 듣기](https://www.youtube.com/watch?v=yD9pLMvBQOA)
+<div class="music-video">
+  <iframe src="https://www.youtube.com/embed/yD9pLMvBQOA" title="도비비 - 천성의 약함 (2021년 한국어 커버)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+[YouTube에서 보기](https://www.youtube.com/watch?v=yD9pLMvBQOA)
