@@ -82,7 +82,7 @@ postTags: []
       assert.match(await read(page), /<meta name="robots" content="noindex">/, page);
     }
     const existing = await read('posts/game/eternal-return/lumia-outing.html');
-    assert.match(existing, /<h1>루미아섬 나들이<\/h1>/);
+    assert.match(existing, /<h1>첫 번째 게임 추천! 「이터널 리턴」<\/h1>/);
     assert.doesNotMatch(existing, /flow\.team|dak\.gg|시간나는대로/);
 
     await rm(fixture);

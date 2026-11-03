@@ -36,7 +36,7 @@ postTags: []
     await mkdir(path.join(workspace, 'drafts', '.previous-preview'), { recursive: true });
     await writeFile(path.join(workspace, 'drafts', '.previous-preview', 'hidden.md'), 'Hidden snapshot must not be rendered.');
     run(['build'], { SITE_INCLUDE_DRAFTS: '1', SITE_DRAFTS: 'drafts' });
-    assert.match(await read('dist', 'posts/game/eternal-return/lumia-outing.html'), /<h1>루미아섬 나들이<\/h1>/);
+    assert.match(await read('dist', 'posts/game/eternal-return/lumia-outing.html'), /<h1>첫 번째 게임 추천! 「이터널 리턴」<\/h1>/);
     assert.match(await read('dist', 'posts/game/eternal-return/lumia-outing.html'), /noindex/);
     assert.doesNotMatch(await read('dist', 'posts/index.html'), /검토 전용 AI 글/);
     assert.match(await read('dist', 'style.css'), /--bg/);
@@ -52,7 +52,7 @@ postTags: []
     assert.match(draft, /{{ literal }}/);
     assert.match(draft, /noindex/);
     assert.match(await read('.draft-build', 'posts/index.html'), /검토 전용 AI 글/);
-    assert.match(await read('.draft-build', 'posts/index.html'), /루미아섬 나들이/);
+    assert.match(await read('.draft-build', 'posts/index.html'), /첫 번째 게임 추천! 「이터널 리턴」/);
     await assert.rejects(read('.draft-build', 'posts/.previous-preview/hidden.html'), { code: 'ENOENT' });
     await assert.rejects(read('dist', 'posts/ai-playground/review-only.html'), { code: 'ENOENT' });
     await assert.rejects(readFile(path.join(workspace, 'src/content/posts/ai-playground/review-only.md')), { code: 'ENOENT' });
