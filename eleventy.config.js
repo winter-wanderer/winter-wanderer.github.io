@@ -57,8 +57,16 @@ export default function (eleventyConfig) {
     return this.page.outputPath?.endsWith('.html') ? content.replace(/[\t ]+$/gm, '') : content;
   });
   eleventyConfig.addCollection('posts', posts);
-  eleventyConfig.addCollection('postCategories', (collections) =>
-    groupPosts(posts(collections), (post) => checkSlug(post.data.category, 'category')));
+  eleventyConfig.addCollection('postCategories', (collections) => {
+    const categories = groupPosts(posts(collections), (post) => checkSlug(post.data.category, 'category'));
+    const music = categories.find((category) => category.slug === 'music');
+    if (music) {
+      if (music.name !== 'MUSIC') throw new Error('The music category name must be MUSIC.');
+    } else {
+      categories.push({ name: 'MUSIC', slug: 'music', posts: [] });
+    }
+    return categories.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+  });
   eleventyConfig.addCollection('postTopics', (collections) =>
     groupPosts(posts(collections), (post) => post.data.topic && {
       ...checkSlug(post.data.topic, 'topic'),

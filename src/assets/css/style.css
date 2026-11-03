@@ -116,6 +116,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .collection-panel p { margin: 0; text-align: center; }
 .category-panel { display: block; min-height: 0; padding: 0; overflow: hidden; }
 .category-panel a { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px; color: var(--ink); font-size: 16px; }
+.category-panel a+a { border-top: 1px solid var(--line); }
 .category-panel a:hover { background: #263029; }
 .category-panel a>span:last-child { color: var(--accent); font-size: 12px; }
 .about-panel { padding: 39px 42px; }
@@ -167,7 +168,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   .game-invite-end { margin-top: 34px; margin-bottom: 0; }
 }
 .empty-state { grid-column: 1 / -1; display: grid; place-items: center; min-height: 300px; margin: 0; color: var(--muted); font-size: 13px; }
-.topics .topic:not(button) { cursor: default; }
+.topics .topic:not(a) { cursor: default; }
 .site-footer>div { display: flex; gap: 16px; align-items: center; margin-right: auto; }
 .footer-brand { font: 15px Georgia, serif; color: #b8bfb7; }
 .site-footer>div>span:last-child { font-size: 10px; }
