@@ -1,4 +1,4 @@
-# Winter Wanderer
+# snowhaven
 
 Markdown과 Eleventy로 만드는 개인 블로그입니다.
 
