@@ -1,0 +1,10 @@
+{% set selectedCategory = category.slug or topic.parentSlug %}
+<nav class="category-nav" aria-label="카테고리 전환">
+  <div class="topics">
+    <a class="topic{% if not selectedCategory %} is-active{% endif %}" href="{% if navSection == 'home' %}/{% else %}/posts/{% endif %}"{% if not selectedCategory %} aria-current="page"{% endif %}><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="7" y="8" width="11" height="26" rx="2"/><rect x="21" y="8" width="11" height="26" rx="2"/><path d="M11 14h3m-3 15h3m11-15h3m-3 15h3"/></svg></span><span>{% if navSection == 'home' %}전체{% else %}전체 글{% endif %}</span></a>
+    {% for item in collections.postCategories %}
+    {% set itemUrl = '/posts/' ~ item.slug ~ '/' %}
+    <a class="topic{% if selectedCategory == item.slug %} is-active{% endif %}" href="{{ itemUrl }}"{% if selectedCategory == item.slug %} aria-current="{% if page.url == itemUrl %}page{% else %}true{% endif %}"{% endif %}><span class="topic-icon" aria-hidden="true"><svg viewBox="0 0 40 40">{% if item.slug == 'music' %}<path d="M16 28V10l17-3v18"/><circle cx="11" cy="29" r="5"/><circle cx="28" cy="26" r="5"/>{% elif item.slug == 'game' %}<path d="M13 12h14c4 0 7 4 8 12l1 5c0 3-3 5-5 3l-6-5H15l-6 5c-2 2-5 0-5-3l1-5c1-8 4-12 8-12Z"/><path d="M10 20h8m-4-4v8m12-5h1m3 4h1"/>{% else %}<path d="M5 12h12l4 4h14v17H5Z"/>{% endif %}</svg></span><span>{{ item.name }}</span></a>
+    {% endfor %}
+  </div>
+</nav>

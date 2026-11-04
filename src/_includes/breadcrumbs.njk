@@ -1,0 +1,18 @@
+<nav class="breadcrumbs" aria-label="현재 위치">
+  <ol>
+    <li><a href="/">HOME</a></li>
+    {% if category or topic %}
+    {% set categoryUrl = '/posts/' ~ (category.slug or topic.parentSlug) ~ '/' %}
+    <li><a href="/categories/">카테고리</a></li>
+    <li>{% if breadcrumbArticle or topic %}<a href="{{ categoryUrl }}">{{ category.name or topic.parentName }}</a>{% else %}<span aria-current="page">{{ category.name }}</span>{% endif %}</li>
+    {% if topic %}
+    <li>{% if breadcrumbArticle %}<a href="{{ categoryUrl }}{{ topic.slug }}/">{{ topic.name }}</a>{% else %}<span aria-current="page">{{ topic.name }}</span>{% endif %}</li>
+    {% endif %}
+    {% if breadcrumbArticle %}<li><span aria-current="page">{{ title }}</span></li>{% endif %}
+    {% elif navSection == 'categories' %}
+    <li><span aria-current="page">카테고리</span></li>
+    {% else %}
+    <li><span aria-current="page">전체 글</span></li>
+    {% endif %}
+  </ol>
+</nav>

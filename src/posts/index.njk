@@ -5,7 +5,9 @@ description: snowhaven의 글 목록.
 navSection: posts
 ---
 <main id="main" class="page posts-page">
+  {% include "breadcrumbs.njk" %}
   <div class="posts-intro"><p class="eyebrow">WRITING</p><h1>글</h1><p>쌓여가는 기록을 한곳에서 볼 수 있도록.</p></div>
+  {% include "category-nav.njk" %}
   <section class="posts-collection" aria-labelledby="all-posts-title">
     <div class="posts-collection-heading"><h2 id="all-posts-title">전체 글</h2><span>{{ collections.posts.length }}</span></div>
     <ol class="posts-list" aria-label="전체 글 목록">
