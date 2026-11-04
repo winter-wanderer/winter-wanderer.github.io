@@ -20,10 +20,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .skip-link:focus { top: 10px; }
 .header-inner, .page, .site-footer { max-width: 1184px; margin: auto; padding-left: 32px; padding-right: 32px; }
 .site-header { border-bottom: 1px solid var(--line); }
-.header-inner { height: 86px; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 12px; font: 22px Georgia, serif; letter-spacing: -.6px; }
-.brand-mark { position: relative; width: 32px; height: 36px; font-size: 34px; line-height: 1; }
-.brand-mark span { position: absolute; right: -3px; top: -3px; color: var(--accent); font: 14px var(--sans); }
+.header-inner { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; border-radius: 6px; font: 25px/1.2 Georgia, serif; letter-spacing: -.5px; }
+.brand-logo { display: block; width: 48px; height: 48px; object-fit: contain; }
 .site-header nav { display: flex; align-items: center; gap: 29px; font-size: 12px; }
 .site-header nav a { color: var(--muted); padding: 8px 0; }
 .site-header nav a:hover { color: var(--ink); }
@@ -173,10 +172,8 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 }
 .empty-state { grid-column: 1 / -1; display: grid; place-items: center; min-height: 300px; margin: 0; color: var(--muted); font-size: 13px; }
 .topics .topic:not(a) { cursor: default; }
-.site-footer>div { display: flex; gap: 16px; align-items: center; margin-right: auto; }
-.footer-brand { font: 15px Georgia, serif; color: #b8bfb7; }
-.site-footer>div>span:last-child { font-size: 10px; }
-.site-footer>a { color: #acb5aa; }
+.site-footer>a { margin-left: auto; padding: 8px 0; color: #acb5aa; }
+.site-footer>a:hover { color: var(--ink); }
 dialog { width: calc(100% - 40px); max-width: 510px; border-radius: 12px; border: 1px solid #3b423d; background: #202522; padding: 30px; color: var(--ink); box-shadow: 0 20px 90px #0006; }
 dialog::backdrop { background: #080b0bcc; backdrop-filter: blur(4px); }
 .dialog-head { display: flex; align-items: center; justify-content: space-between; }
@@ -192,7 +189,12 @@ dialog h2 { margin: 0; font-size: 25px; font-weight: 500; letter-spacing: -1px; 
   .book-shelf { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .thumbnail { aspect-ratio: 1.85; }
   .code-window { top: 50%; transform: translateY(-41%); }
-  .site-footer>div>span:last-child { display: none; }
+}
+@media (max-width: 760px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 14px; padding-bottom: 14px; }
+  .site-header nav { width: 100%; justify-content: space-between; gap: 8px; font-size: 10px; white-space: nowrap; }
+  .brand { gap: 10px; font-size: 23px; }
+  .brand-logo { width: 44px; height: 44px; }
 }
 @media (max-width: 600px) {
   .home-post-card a { padding: 23px 20px; }
@@ -215,18 +217,11 @@ dialog h2 { margin: 0; font-size: 25px; font-weight: 500; letter-spacing: -1px; 
   .collection-panel { min-height: 180px; }
   .about-panel { padding: 30px 25px; }
   .about-panel p { font-size: 17px; }
-  .header-inner { flex-wrap: wrap; height: auto; min-height: 72px; padding-top: 15px; padding-bottom: 10px; }
-  .site-header nav { width: 100%; margin-top: 9px; justify-content: space-between; gap: 10px; white-space: nowrap; }
   .home-quote { margin-top: 22px; padding: 44px 22px; }
   .quote-decoration { font-size: 120px; }
   .quote-decoration-open { top: 8px; left: 12px; }
   .quote-decoration-close { right: 12px; bottom: -37px; }
   .header-inner, .page, .site-footer { padding-left: 23px; padding-right: 23px; }
-  .header-inner { height: 72px; }
-  .brand { font-size: 19px; gap: 10px; }
-  .brand-mark { font-size: 29px; width: 27px; height: 30px; }
-  .brand-mark span { font-size: 12px; }
-  .site-header nav { gap: 20px; font-size: 11px; }
   .site-header nav a:last-child { display: none; }
   .intro { padding: 45px 0 31px; }
   .eyebrow { font-size: 8px; margin-bottom: 18px; }
@@ -248,14 +243,10 @@ dialog h2 { margin: 0; font-size: 25px; font-weight: 500; letter-spacing: -1px; 
   .excerpt { font-size: 12px; min-height: 0; }
   .post-date { font-size: 10px; margin-top: 13px; }
   .site-footer { width: calc(100% - 46px); margin: 0 23px; padding: 22px 0 26px; flex-wrap: wrap; gap: 17px; }
-  .site-footer>div { flex-basis: 100%; }
-  .site-footer>a { margin-left: auto; }
   dialog { padding: 24px; }
   dialog h2 { font-size: 23px; }
 }
 @media (max-width: 360px) {
-  .site-header nav { gap: 13px; }
-  .brand { font-size: 17px; }
   .intro h1 { font-size: 25px; }
   .thumbnail .thumb-text { font-size: 26px; }
   .code-line { font-size: 14px; left: 14px; }
