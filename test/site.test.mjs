@@ -73,6 +73,20 @@ postTags: []
     assert.match(await read('categories/index.html'), /음악/);
     assert.match(await read('categories/index.html'), /\/posts\/music\//);
     assert.match(await read('index.html'), /\/posts\/music\//);
+    for (const page of ['index.html', 'posts/index.html', 'posts/music/index.html', 'posts/game/index.html', 'posts/game/eternal-return/index.html']) {
+      const navigation = (await read(page)).match(/<nav class="category-nav"[\s\S]*?<\/nav>/)?.[0] ?? '';
+      assert.match(navigation, /href="\/posts\/game\/"/, page);
+      assert.match(navigation, /href="\/posts\/music\/"/, page);
+      assert.match(navigation, new RegExp(`href="/posts/${categorySlug}/"`), page);
+    }
+    const musicNav = (await read('posts/music/index.html')).match(/<nav class="category-nav"[\s\S]*?<\/nav>/)?.[0] ?? '';
+    assert.match(musicNav, /class="topic is-active" href="\/posts\/music\/" aria-current="page"/);
+    assert.match(musicNav, /href="\/posts\/">/);
+    const articleTrail = article.match(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/)?.[0] ?? '';
+    for (const href of ['/', '/categories/', '/posts/game/', '/posts/game/eternal-return/']) {
+      assert.ok(articleTrail.includes(`href="${href}"`), href);
+    }
+    assert.match(articleTrail, /aria-current="page">자동 목록 검증/);
     assert.match(await read('posts/music/index.html'), /\/posts\/music\/amanojaku\.html/);
     assert.match(await read(`posts/${categorySlug}/index.html`), /새 카테고리 검증/);
     assert.match(await read('tags/index.html'), new RegExp(`/tags/${tagSlug}/`));

@@ -11,7 +11,9 @@ eleventyComputed:
   description: "snowhaven의 {{ topic.name }} 글 목록."
 ---
 <main id="main" class="page posts-page">
+  {% include "breadcrumbs.njk" %}
   <div class="posts-intro"><p class="eyebrow">{{ topic.parentSlug | upper }}</p><h1>{{ topic.name }}</h1><p>{{ topic.name }}에 관한 글.</p></div>
+  {% include "category-nav.njk" %}
   <section class="posts-collection" aria-labelledby="topic-posts-title">
     <div class="posts-collection-heading"><h2 id="topic-posts-title">글 목록</h2><span>{{ topic.posts.length }}</span></div>
     <ol class="posts-list" aria-label="{{ topic.name }} 글 목록">

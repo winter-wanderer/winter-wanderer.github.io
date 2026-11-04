@@ -41,6 +41,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .topic-icon { display: inline-flex; color: #808e83; }
 .topic.is-active .topic-icon { color: var(--accent); }
 .topic-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.category-nav { min-width: 0; }
+.category-nav .topics { flex-wrap: wrap; }
+.posts-page>.category-nav { margin-top: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.breadcrumbs { margin-bottom: 28px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 0; padding: 0; list-style: none; }
+.breadcrumbs li { min-width: 0; overflow-wrap: anywhere; }
+.breadcrumbs li+li::before { content: '›'; margin-right: 10px; color: var(--muted); }
+.breadcrumbs a:hover { color: var(--accent); }
+.breadcrumbs [aria-current] { color: var(--ink); }
 .sample-badge { display: inline-flex; align-items: center; gap: 7px; margin: 0; font-size: 10px; color: #8d938c; font-weight: 400; white-space: nowrap; }
 .sample-badge>span { width: 4px; height: 4px; border-radius: 50%; background: #839378; }
 .shelf-section { padding: 34px 0 65px; }
