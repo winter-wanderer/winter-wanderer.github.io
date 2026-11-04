@@ -42,7 +42,8 @@ postTags: []
     assert.match(await read('dist', 'style.css'), /--bg/);
     assert.match(await read('dist', 'quotes.js'), /quote/);
     assert.equal(await read('dist', '.nojekyll'), '');
-    assert.deepEqual((await readdir(path.join(workspace, 'dist'))).sort(), ['.nojekyll', 'about', 'categories', 'index.html', 'posts', 'quotes.js', 'style.css', 'tags']);
+    assert.deepEqual((await readdir(path.join(workspace, 'dist'))).sort(), ['.nojekyll', 'about', 'categories', 'index.html', 'posts', 'quotes.js', 'snowhaven-logo.png', 'style.css', 'tags']);
+    assert.deepEqual(await readFile(path.join(workspace, 'dist', 'snowhaven-logo.png')), await readFile(path.join(root, 'src/assets/images/snowhaven-logo.png')));
     await writeFile(path.join(workspace, 'dist', 'old-generated.html'), 'obsolete');
     run(['build']);
     await assert.rejects(read('dist', 'old-generated.html'), { code: 'ENOENT' });

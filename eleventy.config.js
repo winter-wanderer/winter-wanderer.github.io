@@ -91,6 +91,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ [path.join(input, 'assets/css/style.css').replaceAll('\\', '/')]: 'style.css' });
   eleventyConfig.addPassthroughCopy({ [path.join(input, 'assets/js/quotes.js').replaceAll('\\', '/')]: 'quotes.js' });
+  eleventyConfig.addPassthroughCopy({ [path.join(input, 'assets/images/snowhaven-logo.png').replaceAll('\\', '/')]: 'snowhaven-logo.png' });
   eleventyConfig.addPassthroughCopy({ [path.join(input, '.nojekyll').replaceAll('\\', '/')]: '.nojekyll' });
 
   return {
