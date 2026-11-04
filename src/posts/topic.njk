@@ -8,7 +8,7 @@ pagination:
 permalink: "/posts/{{ topic.parentSlug }}/{{ topic.slug }}/index.html"
 eleventyComputed:
   title: "{{ topic.name }}"
-  description: "Winter Wanderer의 {{ topic.name }} 글 목록."
+  description: "snowhaven의 {{ topic.name }} 글 목록."
 ---
 <main id="main" class="page posts-page">
   <div class="posts-intro"><p class="eyebrow">{{ topic.parentSlug | upper }}</p><h1>{{ topic.name }}</h1><p>{{ topic.name }}에 관한 글.</p></div>
